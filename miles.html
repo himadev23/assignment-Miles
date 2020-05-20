@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="./miles.css" rel="stylesheet">
+    <script>
+      var assertions = {
+        offer1:[],
+        offer2:[],
+        offer3:[],
+        offer4:[]
+      };
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+        //ev.dataTransfer.setData("originalRow", ev.target.dataset.offer);
+      }
+      var originalCheck = true;
+
+function drop(ev) {
+  ev.preventDefault();
+  console.log(ev.target.parentNode.getAttribute('id'))
+  var data = ev.dataTransfer.getData("text");
+  var originalOffer = ev.dataTransfer.getData("originalRow");
+  var parent = document.getElementById(data).parentNode.getAttribute('class');
+  var target = ev.target.getAttribute('class').split(' ');
+  var renderElement;
+    renderElement=document.getElementById(data).cloneNode(true);
+    //renderElement.setAttribute("id", originalOffer+"-lane1");
+ 
+
+  if(data === "offer1" && target.includes('lane_one')){
+    ev.target.appendChild(renderElement);
+    renderElement.classList.remove("original");
+    assertions[data].push(ev.target.parentNode.getAttribute('id'))
+    console.log("el",renderElement.classList);
+    
+  }
+  else if(data === "offer2" && target.includes('lane_two')){
+      ev.target.appendChild(renderElement);
+      renderElement.classList.remove("original");
+    
+  }
+  else if(data === "offer3" && target.includes('lane_three')){
+    ev.target.appendChild(renderElement);
+    renderElement.classList.remove("original");
+    assertions[data].push(ev.target.parentNode.getAttribute('id'))
+   
+      check = false;
+    
+    
+  }
+  else if(data === "offer4" && target.includes('lane_four')){
+    ev.target.appendChild(renderElement);
+    renderElement.classList.remove("original");
+    assertions[data].push(ev.target.parentNode.getAttribute('id'))
+    
+      check = false;
+  }
+    
+  
+  else{
+
+  }
+  console.log("assert",assertions)
+  
+
+}
+
+function closeFunction(e){
+  console.log("hey1",document.getElementsByClassName('close'))
+  console.log()
+  //document.getElementsByClassName('close').parentNode.remove();
+  e.parentNode.parentNode.removeChild(e.parentNode)
+}
+    </script>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 style="text-align: center;">Groupon Reward Mapping</h1>
+      <div class ="main">
+      <div class="reward" >
+         <h3>Rewards</h3> 
+        <div class="offer original" data-offer="offer1" draggable="true" id="offer1" ondragstart="drag(event)"><span class="close" onclick="closeFunction(this)">x</span><h3>Offer1</h3></div>
+        <div class="offer original" data-offer="offer2" draggable="true" id="offer2" ondragstart="drag(event)"><span class="close" onclick="closeFunction(this)">x</span><h3>Offer2</h3></div>
+        <div class="offer original" data-offer="offer3" draggable="true" id="offer3" ondragstart="drag(event)"><span class="close" onclick="closeFunction(this)">x</span><h3>Offer3</h3></div>
+        <div class="offer original" data-offer="offer4" draggable="true" id="offer4" ondragstart="drag(event)"><span class="close" onclick="closeFunction(this)">x</span><h3>Offer4</h3></div>
+      </div>
+      <div class="category">
+        <h3>category</h3>
+        <div class="swimlane" ondrop="drop(event)" ondragover="allowDrop(event)" id="swimlane1">
+          <h4>C1</h4>
+          <div class="subRow lane_one"></div>
+          <div class="subRow lane_two"></div>
+          <div class="subRow lane_three"></div>
+          <div class="subRow lane_four"></div>
+        </div>
+        <div class="swimlane" ondrop="drop(event)" ondragover="allowDrop(event)" id='swimlane2'>
+          <h4>C2</h4>
+          <div class="subRow lane_one"></div>
+          <div class="subRow lane_two"></div>
+          <div class="subRow lane_three"></div>
+          <div class="subRow lane_four"></div>
+        </div>
+        <div class="swimlane" ondrop="drop(event)" ondragover="allowDrop(event)" id='swimlane3'>
+          <h4>C3</h4>
+          <div class="subRow lane_one"></div>
+          <div class="subRow lane_two"></div>
+          <div class="subRow lane_three"></div>
+          <div class="subRow lane_four"></div>
+        </div>
+        <div class="swimlane" ondrop="drop(event)" ondragover="allowDrop(event)" id='swimlane4'>
+          <h4>C4</h4>
+          <div class="subRow lane_one"></div>
+          <div class="subRow lane_two"></div>
+          <div class="subRow lane_three"></div>
+          <div class="subRow lane_four"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

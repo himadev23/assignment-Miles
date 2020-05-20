@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+}
+.container{
+  height: 100%;
+}
+.offer{
+  width: 75%;
+  height: 50px;
+  /* border: 1px solid red; */
+  background-color: royalblue;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+div.offer h3{
+  margin: 5px;
+}
+.reward{
+  float: left;
+  border: 1px solid #73AD21;
+  width: 25%;
+  height: 100%;
+  margin-top: 50px;
+}
+.main{
+  margin: auto;
+  /* height: auto; */
+  width: auto;
+  border: 1px solid blue;
+}
+.category{
+  width: 75%;
+  float: left;
+  height: 100%;
+}
+.swimlane{
+  width: 25%;
+  float: left;
+  padding: 1px;
+  height: 100%;
+  border: 1px solid #73AD21; 
+}
+
+.subRow{
+  width: 90%;
+  height: 70px;
+  /* border: 1px solid red; */
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+span.close {
+  float:right;
+  display:none;
+  padding:2px 5px;
+  background:#ccc;
+}
+
+div.swimlane span.close{
+  display: inline-block;
+}
