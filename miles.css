@@ -27,7 +27,7 @@ div.offer h3{
   margin: auto;
   /* height: auto; */
   width: auto;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .category{
   width: 75%;
@@ -45,7 +45,7 @@ div.offer h3{
 .subRow{
   width: 90%;
   height: 70px;
-  /* border: 1px solid red; */
+   border: 1px solid red; 
   margin: 5px;
   padding: 5px;
   text-align: center;
